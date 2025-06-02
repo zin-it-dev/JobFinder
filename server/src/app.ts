@@ -1,12 +1,19 @@
-import express, { Request, Response } from 'express'
+import express from 'express'
+import cors from 'cors'
+import morgan from 'morgan'
+
+import { PORT } from '@/configs/secrets'
+import userRouter from '@/routes/users.route'
 
 const app = express()
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Job Finder API is running!')
-})
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(morgan('dev'))
 
-const PORT = 8000
+// APIs
+app.use('/users', userRouter)
 
 app.listen(PORT, () =>
     console.log(`🚀 Server started on http://localhost:${PORT}`)

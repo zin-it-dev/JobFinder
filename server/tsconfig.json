@@ -9,15 +9,9 @@
         "skipLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": [
-                "./src/*"
-            ]
+            "@/*": ["./src/*"]
         }
     },
-    "files": [
-        "src/type.d.ts"
-    ],
-    "include": [
-        "src/**/*"
-    ]
+    "files": ["src/type.d.ts"],
+    "include": ["src/**/*"]
 }
