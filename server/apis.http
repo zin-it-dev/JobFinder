@@ -1,0 +1,10 @@
+POST http://localhost:9000/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "username": "zin.it.desvx",
+    "email": "zin.it.xdes@gmail.com",
+    "password": "13456",
+    "firstName": "ZIN",
+    "lastName": "Lee"
+}

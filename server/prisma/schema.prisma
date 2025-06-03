@@ -20,13 +20,14 @@ model User {
   password String
   firstName String
   lastName  String
+  isActive   Boolean @default(true)
   role     Role     @default(USER)
   profile Profile?
 
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
 
-  @@unique([firstName, lastName])
+  Job Job[]
 }
 
 model Profile {
@@ -40,4 +41,19 @@ enum Role {
   USER
   ADMIN
   RECRUITER
+}
+
+model Job {
+  id     Int    @id @default(autoincrement())
+  title  String   @unique
+  isActive   Boolean @default(true)
+  description String
+  location    String
+  salary      Float  @default(0.00)
+
+  recruiter   User   @relation(fields: [recruiterId], references: [id])
+  recruiterId Int
+
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
 }
