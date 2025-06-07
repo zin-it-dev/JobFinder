@@ -12,7 +12,12 @@ import authRouter from '@/routes/auth.routes'
 const app = express()
 
 app.use('/static', express.static(path.join(__dirname, 'assets')))
-app.use(cors())
+app.use(
+    cors({
+        origin: '*',
+        credentials: true
+    })
+)
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
@@ -20,7 +25,7 @@ app.use(cookieParser())
 app.use(helmet())
 
 // APIs
-app.use('/auth', authRouter)
+app.use('/users', authRouter)
 app.use('/jobs', jobRouter)
 
 app.get('/', (req: Request, res: Response) => {

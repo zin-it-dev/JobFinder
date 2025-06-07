@@ -20,6 +20,7 @@ model User {
   password String
   firstName String
   lastName  String
+  avatar    String?
   isActive   Boolean @default(true)
   role     Role     @default(USER)
   profile Profile?

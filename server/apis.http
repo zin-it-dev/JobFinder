@@ -1,10 +1,21 @@
-POST http://localhost:9000/auth/register HTTP/1.1
+POST http://localhost:9000/users HTTP/1.1
 content-type: application/json
 
 {
-    "username": "zin.it.desvx",
-    "email": "zin.it.xdes@gmail.com",
+    "username": "zszssisxn.it.desvx",
+    "email": "xzisn.issst.xdes@gmail.com",
     "password": "13456",
-    "firstName": "ZIN",
-    "lastName": "Lee"
+    "firstName": "sZIN",
+    "lastName": "Lee",
+    "avatar": ""
+}
+
+###
+
+POST http://localhost:9000/users/token HTTP/1.1
+content-type: application/json
+
+{
+    "email": "zin.it.dev@gmail.com",
+    "password": "12345"
 }
